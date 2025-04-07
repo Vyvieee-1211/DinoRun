@@ -8,23 +8,28 @@ class MainObject
 {
 private:
 	SDL_Texture* texture;
+	SDL_Texture* hurtTexture;
+	SDL_Rect renderQuad;
 	std::vector<SDL_Rect> clips;
+	std::vector<SDL_Rect> hurtClips;
 	int currentFrame;
+	int currentFrame2; 
 	bool jump; 
-	const int jumpValue = 5; 
-	const int jumpRange = 230;//110  
+	const int jumpValue = 12; 
+	const int jumpRange = 220;
 	bool atRange; 
 	bool onGround; 
 	int xPos;// xpos nay k thay doi
 	int yPos; //vi tri render
-	int delay = 0;
+	int delay;
 
 public:
 	MainObject();
 	~MainObject();
-	bool init(SDL_Texture* _texture,const int frames, const int _clip[][4]);
+	bool init(SDL_Texture* _texture,SDL_Texture* _hurtTexture);
 	void move(); 
 	void handleInputEvent(SDL_Event events);
-	void show(Graphics& graphics);
+	void show(Graphics& graphics, bool* hurt);
+	SDL_Rect getRect();
 
 };

@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>D:\SDL2_VC-2.32.2\lib\x64;D:\SDL2_image_VC-2.8.8\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\SDL2_VC-2.32.2\lib\x64;D:\SDL2_image_VC-2.8.8\lib\x64;D:\SDL2_ttf-2.24.0_VC\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -107,12 +107,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\SDL2_VC-2.32.2\include;D:\SDL2_image_VC-2.8.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SDL2_VC-2.32.2\include;D:\SDL2_image_VC-2.8.8\include;D:\SDL2_ttf-2.24.0_VC\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="background.cpp" />
+    <ClCompile Include="getScore.cpp" />
     <ClCompile Include="obstacle.cpp" />
     <ClCompile Include="mainObject.cpp" />
     <ClCompile Include="collision.cpp" />
@@ -141,6 +142,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h" />
+    <ClInclude Include="collision.h" />
+    <ClInclude Include="getScore.h" />
     <ClInclude Include="obstacle.h" />
     <ClInclude Include="mainObject.h" />
     <ClInclude Include="defs.h" />

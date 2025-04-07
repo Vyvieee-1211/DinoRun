@@ -12,7 +12,7 @@ const char BACKGROUND_FILE[] = "bg1.png";
 const char SINGLE_CACTUS_FILE[] = "cactus.png";
 const char DOUBLE_CACTUS_FILE[] = "double-cactus.png";
 const char DINO_FILE[] = "DinoBlue.png"; 
-const char BAT_FILE[] = "bat.png"; 
+const char DINO_HURT_FILE[] = "dinohurt.png";
 #define WINDOW_TITLE "Dino Run ~ by Vy"
 const int DINO_CLIPS[][4] = {
     {0, 0, 57, 57},
@@ -23,3 +23,10 @@ const int DINO_CLIPS[][4] = {
     {285, 0, 57,57}
 };
 const int DINO_FRAMES = sizeof(DINO_CLIPS) / sizeof(int) / 4;
+const int DINO_HURT_FRAMES = 3; 
+const int DINO_HURT_CLIPS[][4] = {
+    {0, 0, 57, 57},
+    {57, 0, 57,57},
+    {114, 0, 57, 57},
+};
+const char FONT[] = "pixel_font.ttf";

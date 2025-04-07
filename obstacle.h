@@ -8,25 +8,26 @@ private:
 	int random; 
 	int xPos;
 	int yPos;
-	int speed; 
+	int *speed; 
 	int width;
 	SDL_Texture* obstacle;
+	SDL_Rect renderQuad;
 public:
 
-	Cactus(int _speed, int _random);
-	int move(int speed);
+	Cactus(int* _speed, int _random, SDL_Texture* _obstacle);
+	int move(int *speed);
 	void show(Graphics& graphics);
-	int getWidth(); 
+	SDL_Rect getRect();
+	int getWidth();
 };
 
 struct HandleCactus
 {
 	SDL_Texture* singleCactus;
 	SDL_Texture* doubleCactus;
-	SDL_Texture* bat; 
-	std::vector<Cactus> obstacles;
-	int speed; 
-	HandleCactus(int _speed);
+	std::vector<Cactus> VectorObstacle;
+	int *speed; 
+	HandleCactus(int *_speed);
 	void init(Graphics& graphics); 
 	int random();
 	void spawn(Graphics& graphics);

@@ -1,21 +1,22 @@
 #include<SDL.h>
 #include<SDL_image.h>
 #include"obstacle.h"
-Cactus::Cactus(int _speed, int _random, SDL_Texture* _obstacle)
+Cactus::Cactus(int* _speed, int _random, SDL_Texture* _obstacle)
 {
 	xPos = SCREEN_WIDTH;
 	yPos = SCREEN_HEIGHT - GROUND_HEIGHT - CACTUS_HEIGHT;
 	speed = _speed;
 	random = _random;
 	width = (random == 1) ? SINGLE_CACTUS_WIDTH : DOUBLE_CACTUS_WIDTH; 
+	obstacle = _obstacle;
 }
-int Cactus::move(int speed)
+int Cactus::move(int *speed)
 {
-	return xPos -= speed;
+	return xPos -= *speed;
 }
 void Cactus::show(Graphics& graphics)
 {
-	SDL_Rect renderQuad;
+	renderQuad;
 	if (random == 1)
 	{
 		renderQuad = { move(speed), yPos, SINGLE_CACTUS_WIDTH, CACTUS_HEIGHT };
@@ -24,13 +25,18 @@ void Cactus::show(Graphics& graphics)
 	{
 		renderQuad = { move(speed), yPos, DOUBLE_CACTUS_WIDTH, CACTUS_HEIGHT };
 	}
-	SDL_RenderCopy(graphics.getRenderer(), singleCactus, NULL, &renderQuad);
+	SDL_RenderCopy(graphics.getRenderer(), obstacle, NULL, &renderQuad);
+}
+SDL_Rect Cactus::getRect()
+{
+	return renderQuad;
+	
 }
 int Cactus::getWidth()
 {
 	return width; 
 }
-HandleCactus::HandleCactus(int _speed)
+HandleCactus::HandleCactus(int* _speed)
 {
 	speed = _speed;
 }
@@ -38,30 +44,32 @@ void HandleCactus::init(Graphics& graphics)
 {
 	singleCactus = graphics.loadTexture(SINGLE_CACTUS_FILE);
 	doubleCactus = graphics.loadTexture(DOUBLE_CACTUS_FILE);
-	bat = graphics.loadTexture(BAT_FILE); 
 }
 int HandleCactus::random()
 {
-	return 1 + rand() % 3;
+	return 1 + rand() % 2;
 }
 void HandleCactus::spawn(Graphics& graphics)
 {
 	int randValue = random();
-	switch (randValue)
+	if (randValue == 1)
 	{
-	case 1:
-
-	case 2:
-	case 3:
+		Cactus obstacle(speed, 1, singleCactus);
+		VectorObstacle.push_back(obstacle);
+	}
+	else
+	{
+		Cactus obstacle(speed, 2, doubleCactus);
+		VectorObstacle.push_back(obstacle);
 	}
 }
 void HandleCactus::update(Graphics& graphics)
 {
-	if (!obstacles.empty())
+	if (!VectorObstacle.empty())
 	{
-		if (obstacles[0].move(speed) + obstacles[0].getWidth() < 0)
-			obstacles.erase(obstacles.begin());
+		if (VectorObstacle[0].move(speed) + VectorObstacle[0].getWidth() < 0)
+			VectorObstacle.erase(VectorObstacle.begin());
 	}
-	for (auto& obstacle : obstacles)
+	for (auto& obstacle : VectorObstacle)
 		obstacle.show(graphics);
 }
