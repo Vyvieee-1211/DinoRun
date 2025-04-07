@@ -9,10 +9,11 @@
 class Score
 {
 private:
-	TTF_Font* gFont;
-	SDL_Texture* texture;
+	TTF_Font* gFont = nullptr;
+	SDL_Texture* texture = nullptr;
 	SDL_Color textColor = { 0, 0, 0, 255 }; 
 public:
 	Score(Graphics& graphics);
+	~Score();
 	void show(int* score, Graphics& graphics); 
 };

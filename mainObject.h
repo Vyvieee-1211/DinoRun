@@ -1,9 +1,8 @@
 #pragma once
-#include<SDL.h>
-#include<SDL_image.h>
 #include"defs.h"
 #include"renderWindow.h"
 #include<vector>
+#include"sound.h"
 class MainObject
 {
 private:

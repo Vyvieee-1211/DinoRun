@@ -78,6 +78,7 @@ void MainObject::handleInputEvent(SDL_Event events)
             if (jump == 0 && onGround == 1) {
                 jump = 1; onGround = 0;
                 atRange = 0; 
+                /*sound.playJumpSound(); */
             } 
         }
 

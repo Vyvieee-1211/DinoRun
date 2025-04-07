@@ -17,6 +17,10 @@ void Graphics::initSDL()
         logErrorAndExit("SDL_ttf could not initialize! SDL_ttf Error: ",
             TTF_GetError());
     }
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+        logErrorAndExit("SDL_mixer could not initialize! SDL_mixer Error: %s\n",
+            Mix_GetError());
+    }
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (renderer == nullptr) logErrorAndExit("Create Renderer", SDL_GetError());
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
@@ -68,14 +72,6 @@ void Graphics::render(const ScrollingBackground& bgr)
     renderTexture(bgr.getTexture(), bgr.getScrollingOffset(), 0, SCREEN_HEIGHT);
     renderTexture(bgr.getTexture(), bgr.getScrollingOffset() - bgr.getWidth(), 0, SCREEN_HEIGHT);
 }
-void Graphics::quit()
-{
-    IMG_Quit();
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    TTF_Quit(); 
-}
 SDL_Renderer* Graphics::getRenderer()
 {
     return renderer;
@@ -100,4 +96,13 @@ SDL_Texture* Graphics::renderText(TTF_Font* gFont, const char* text, SDL_Color& 
     }
     SDL_FreeSurface(textSurface);
     return texture;
+}
+void Graphics::quit()
+{
+    IMG_Quit();
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    TTF_Quit(); 
+    Mix_Quit();
 }

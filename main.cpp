@@ -7,6 +7,7 @@
 #include"defs.h"
 #include"collision.h"
 #include"getScore.h"
+#include"sound.h"
 #undef main
 
 int main(int argc, char* argv[]) {
@@ -25,17 +26,23 @@ int main(int argc, char* argv[]) {
     handleCactus.init(graphics);
     Collision collision; 
     Score getScore(graphics); 
+    //Sound sound; 
+    //sound.playMusic(&hurt);  
     while (!quit)
     {
         while (SDL_PollEvent(&event)!= 0)
         {
             if (event.type == SDL_QUIT) quit = 1;
-            dino.handleInputEvent(event); 
+            //dino.handleInputEvent(event, sound); 
+            dino.handleInputEvent(event, sound); 
         }
         if (collision.check(dino, handleCactus))
         {
             speed = 0; 
             hurt = 1;
+            sound.playEndGameSound();
+            //sound.playMusic(&hurt);
+            //quit = 1;
         }
         if (count % 100 == 0)
         {
