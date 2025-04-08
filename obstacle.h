@@ -16,7 +16,7 @@ public:
 
 	Cactus(int* _speed, int _random, SDL_Texture* _obstacle);
 	int move(int *speed);
-	void show(Graphics& graphics);
+	void show(Graphics* graphics);
 	SDL_Rect getRect();
 	int getWidth();
 };
@@ -28,8 +28,9 @@ struct HandleCactus
 	std::vector<Cactus> VectorObstacle;
 	int *speed; 
 	HandleCactus(int *_speed);
-	void init(Graphics& graphics); 
+	void reset();
+	void init(Graphics* graphics); 
 	int random();
-	void spawn(Graphics& graphics);
-	void update(Graphics& graphics);
+	void spawn(Graphics* graphics);
+	void update(Graphics* graphics);
 };

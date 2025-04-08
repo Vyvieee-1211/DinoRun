@@ -1,14 +1,10 @@
 #include"sound.h"
-Sound::Sound()
+void Sound::init()
 {
-    std::cout << "Loading Music" << '\n'; 
-	jumpingSound = Mix_LoadWAV(JUMP_SOUND);
-	endGameSound = Mix_LoadWAV(END_GAME_SOUND);  
-	gMusic = Mix_LoadMUS(BACKGROUND_MUSIC);
-}
-Sound::~Sound()
-{
-
+    std::cout << "Loading Music" << '\n';
+    jumpingSound = Mix_LoadWAV(JUMP_SOUND);
+    endGameSound = Mix_LoadWAV(END_GAME_SOUND);
+    gMusic = Mix_LoadMUS(BACKGROUND_MUSIC);
 }
 void Sound::playMusic(bool* hurt)
 {

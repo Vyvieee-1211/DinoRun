@@ -5,15 +5,25 @@
 #include<string>
 #include"defs.h"
 #include"renderWindow.h"
-
 class Score
 {
 private:
-	TTF_Font* gFont = nullptr;
-	SDL_Texture* texture = nullptr;
+	TTF_Font* gFont;
+	SDL_Texture* texture;
 	SDL_Color textColor = { 0, 0, 0, 255 }; 
+	std::string scoreStr;
 public:
-	Score(Graphics& graphics);
-	~Score();
-	void show(int* score, Graphics& graphics); 
+	void init(Graphics* graphic);
+	/*const char* convertText(int* score);*/
+	void show( Graphics* graphics, int* score); 
+};
+class Text
+{
+private:
+	TTF_Font* menuText; 
+	SDL_Texture* texture;
+	SDL_Color textColor = { 0, 0, 0, 255 };
+public:
+	void init(Graphics* graphics);
+	void show(const char* text, Graphics* graphics);
 };

@@ -13,9 +13,9 @@ private:
 	std::vector<SDL_Rect> hurtClips;
 	int currentFrame;
 	int currentFrame2; 
-	bool jump; 
 	const int jumpValue = 12; 
 	const int jumpRange = 220;
+	bool jump; 
 	bool atRange; 
 	bool onGround; 
 	int xPos;// xpos nay k thay doi
@@ -24,11 +24,11 @@ private:
 
 public:
 	MainObject();
-	~MainObject();
+	void reset(); 
 	bool init(SDL_Texture* _texture,SDL_Texture* _hurtTexture);
 	void move(); 
-	void handleInputEvent(SDL_Event events);
-	void show(Graphics& graphics, bool* hurt);
+	void handleInputEvent(SDL_Event events, Sound* sound);
+	void show(Graphics* graphics, bool* hurt);
 	SDL_Rect getRect();
 
 };

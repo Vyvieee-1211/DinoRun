@@ -1,22 +1,23 @@
 ﻿#include<SDL.h>
 #include"getScore.h"
-Score::Score(Graphics& graphics)
+void Score::init(Graphics* graphics)
 {
-	gFont = graphics.loadFont(30);
+	gFont = graphics->loadFont(30);
 }
-Score::~Score()
+void Score::show(Graphics* graphics, int* score)
 {
-	if (texture != nullptr)
-	{
-		SDL_DestroyTexture(texture);
-		texture = nullptr;
-	}
-}
-void Score::show(int* score, Graphics& graphics)
-{
-	std::string scoreStr = std::to_string(*score);
+	scoreStr = std::to_string(*score);
 	scoreStr = "score: " + scoreStr;
 	const char* text = scoreStr.c_str();
-	texture = graphics.renderText(gFont, text, textColor);
-	graphics.renderTexture(texture, 30, 30); 
+	texture = graphics->renderText(gFont, text, textColor);
+	graphics->renderTexture(texture, 30, 30); 
+}
+void Text::init(Graphics* graphics)
+{
+	menuText = graphics->loadFont(50);
+}
+void Text::show(const char* text, Graphics* graphics)
+{
+	texture = graphics->renderText(menuText, text, textColor);
+	graphics->renderTexture(texture, 200, 200);
 }

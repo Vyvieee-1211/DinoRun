@@ -8,5 +8,5 @@ struct Collision
 {
 	SDL_Rect dino;
 	SDL_Rect obstacle;
-	bool check(MainObject& mainObject, HandleCactus& obstacles);
+	bool check(MainObject* mainObject, HandleCactus* obstacles);
 };

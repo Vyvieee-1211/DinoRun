@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="background.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="getScore.cpp" />
     <ClCompile Include="obstacle.cpp" />
     <ClCompile Include="mainObject.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="background.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="getScore.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="sound.h" />
     <ClInclude Include="obstacle.h" />
     <ClInclude Include="mainObject.h" />

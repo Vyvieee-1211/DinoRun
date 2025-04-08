@@ -8,6 +8,7 @@ void Graphics::logErrorAndExit(const char* msg, const char* error)
 }
 void Graphics::initSDL()
 {
+    TTF_Init();
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) logErrorAndExit("SDL_INIT", SDL_GetError());
     window = SDL_CreateWindow(WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if (window == nullptr) logErrorAndExit("Window error", SDL_GetError());
@@ -51,7 +52,7 @@ TTF_Font* Graphics::loadFont(int size)
     if (gFont == nullptr) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION,
             SDL_LOG_PRIORITY_ERROR,
-            "Load font %s", TTF_GetError());
+            "Error Load font %s", TTF_GetError());
     }
     return gFont; 
 }
@@ -67,15 +68,16 @@ void Graphics::renderTexture(SDL_Texture* texture, int x, int y, int h)
     SDL_RenderCopy(renderer, texture, NULL, &rect);
 }
 
-void Graphics::render(const ScrollingBackground& bgr)
-{
-    renderTexture(bgr.getTexture(), bgr.getScrollingOffset(), 0, SCREEN_HEIGHT);
-    renderTexture(bgr.getTexture(), bgr.getScrollingOffset() - bgr.getWidth(), 0, SCREEN_HEIGHT);
+void Graphics::render(const ScrollingBackground* bgr)
+{ 
+    renderTexture(bgr->getTexture(), bgr->getScrollingOffset(), 0, SCREEN_HEIGHT);
+    renderTexture(bgr->getTexture(), bgr->getScrollingOffset() - bgr->getWidth(), 0, SCREEN_HEIGHT);
 }
 SDL_Renderer* Graphics::getRenderer()
 {
     return renderer;
 }
+
 SDL_Texture* Graphics::renderText(TTF_Font* gFont, const char* text, SDL_Color& textColor)
 {
     SDL_Surface* textSurface =

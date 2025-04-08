@@ -14,7 +14,7 @@ int Cactus::move(int *speed)
 {
 	return xPos -= *speed;
 }
-void Cactus::show(Graphics& graphics)
+void Cactus::show(Graphics* graphics)
 {
 	renderQuad;
 	if (random == 1)
@@ -25,7 +25,7 @@ void Cactus::show(Graphics& graphics)
 	{
 		renderQuad = { move(speed), yPos, DOUBLE_CACTUS_WIDTH, CACTUS_HEIGHT };
 	}
-	SDL_RenderCopy(graphics.getRenderer(), obstacle, NULL, &renderQuad);
+	SDL_RenderCopy(graphics->getRenderer(), obstacle, NULL, &renderQuad);
 }
 SDL_Rect Cactus::getRect()
 {
@@ -40,16 +40,23 @@ HandleCactus::HandleCactus(int* _speed)
 {
 	speed = _speed;
 }
-void HandleCactus::init(Graphics& graphics)
+void HandleCactus::reset()
 {
-	singleCactus = graphics.loadTexture(SINGLE_CACTUS_FILE);
-	doubleCactus = graphics.loadTexture(DOUBLE_CACTUS_FILE);
+	if (!VectorObstacle.empty())
+	{
+		VectorObstacle.erase(VectorObstacle.begin(), VectorObstacle.end());
+	}
+}
+void HandleCactus::init(Graphics* graphics)
+{
+	singleCactus = graphics->loadTexture(SINGLE_CACTUS_FILE);
+	doubleCactus = graphics->loadTexture(DOUBLE_CACTUS_FILE);
 }
 int HandleCactus::random()
 {
 	return 1 + rand() % 2;
 }
-void HandleCactus::spawn(Graphics& graphics)
+void HandleCactus::spawn(Graphics* graphics)
 {
 	int randValue = random();
 	if (randValue == 1)
@@ -63,7 +70,7 @@ void HandleCactus::spawn(Graphics& graphics)
 		VectorObstacle.push_back(obstacle);
 	}
 }
-void HandleCactus::update(Graphics& graphics)
+void HandleCactus::update(Graphics* graphics)
 {
 	if (!VectorObstacle.empty())
 	{

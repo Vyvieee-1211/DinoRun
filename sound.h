@@ -10,8 +10,7 @@ private:
     Mix_Chunk* jumpingSound; 
     Mix_Chunk* endGameSound;
 public:
-    Sound(); 
-    ~Sound(); 
+    void init();
     void playMusic(bool* hurt);
     void playJumpSound();
     void playEndGameSound();
