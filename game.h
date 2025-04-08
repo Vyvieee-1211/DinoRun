@@ -6,7 +6,7 @@
 #include"obstacle.h"
 #include"defs.h"
 #include"collision.h"
-#include"getScore.h"
+#include"text.h"
 #include"sound.h"
 struct Game
 {

@@ -134,7 +134,7 @@
   <ItemGroup>
     <ClCompile Include="background.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="getScore.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="obstacle.cpp" />
     <ClCompile Include="mainObject.cpp" />
     <ClCompile Include="collision.cpp" />
@@ -145,7 +145,7 @@
   <ItemGroup>
     <ClInclude Include="background.h" />
     <ClInclude Include="collision.h" />
-    <ClInclude Include="getScore.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="sound.h" />
     <ClInclude Include="obstacle.h" />

@@ -29,8 +29,8 @@ void Game::init()
 void Game::showMenu()
 {
     graphics->renderTexture(menu, 0, 0);
-    /*const char* text = "PRESS SPCE TO PLAY GAME";
-    menuText->show(text, graphics); */
+    const char* text = "PRESS SPACE TO PLAY GAME";
+    menuText->show(text, graphics, 300, 300); 
     graphics->presentScene();
 }
 void Game::showReplay()

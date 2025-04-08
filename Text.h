@@ -14,7 +14,6 @@ private:
 	std::string scoreStr;
 public:
 	void init(Graphics* graphic);
-	/*const char* convertText(int* score);*/
 	void show( Graphics* graphics, int* score); 
 };
 class Text
@@ -25,5 +24,5 @@ private:
 	SDL_Color textColor = { 0, 0, 0, 255 };
 public:
 	void init(Graphics* graphics);
-	void show(const char* text, Graphics* graphics);
+	void show(const char* text, Graphics* graphics, int xPos, int yPos);
 };
