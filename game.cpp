@@ -68,11 +68,11 @@ void Game::play()
             {
                 switch (event.key.keysym.sym)
                 {
-                case SDLK_SPACE:
-                    *gameStatus = 0;
-                    break;
                 case SDLK_ESCAPE:
                     *quit = 1;
+                    break;
+                case SDLK_SPACE:
+                    *gameStatus = 0;
                     break;
                 }
 
@@ -116,7 +116,7 @@ void Game::play()
         graphics->presentScene();
         ++*count;
     }
-    if (*gameStatus == 2)
+    if (*gameStatus == 2 && *quit != 1)
     {
         showReplay();
         reset();
