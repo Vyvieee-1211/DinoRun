@@ -13,7 +13,11 @@ Nhấn nút Space để bắt đầu trò chơi
 Nhấn nút Space hoặc Up để nhảy.
 Nhấn Esc để thoát trò chơi
 
-# 2. References
+# 2. Images
+![Image](https://github.com/user-attachments/assets/b99b195d-2ee9-4cbd-bf72-02f90e1b9730)
+![Image](https://github.com/user-attachments/assets/1e94554c-e409-4a35-b0ce-87b44bb7f830)
+![Image](https://github.com/user-attachments/assets/3913e786-d0cf-4492-af91-3489a94edfa3)
+# 3. References
 
 https://cdn-files.uet.vnu.edu.vn/uet/account_1/attachments/523438/LTNC%20-%20T%25C3%25A0i%20li%25E1%25BB%2587u%20b%25E1%25BB%2595%20sung.pdf?response-content-disposition=attachment%3B%20filename%3D%22LTNC%20-%20Tai%20li_u%20b_%20sung.pdf%22%3B%20filename%2A%3DUTF-8%27%27LTNC%2520%252D%2520T%25C3%25A0i%2520li%25E1%25BB%2587u%2520b%25E1%25BB%2595%2520sung.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=2tMJEhYESPRCATfnry88%2F20250408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250408T162714Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-
 
