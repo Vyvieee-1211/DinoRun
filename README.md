@@ -15,7 +15,7 @@ Nhấn Esc để thoát trò chơi
 
 # 2. Images
 ![Image](https://github.com/user-attachments/assets/b99b195d-2ee9-4cbd-bf72-02f90e1b9730)
-![Image](https://github.com/user-attachments/assets/1e94554c-e409-4a35-b0ce-87b44bb7f830)
+![Image](https://github.com/user-attachments/assets/b0a59d3d-2ed8-4102-a84c-aea9ee315d80)
 ![Image](https://github.com/user-attachments/assets/3913e786-d0cf-4492-af91-3489a94edfa3)
 # 3. References
 
